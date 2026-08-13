@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlarmPlay: Alien Invasion — Wake Up. Defend Earth.</title>
+    <meta name="description" content="The alarm app that turns your morning into an alien invasion. Complete missions, defend Earth, and actually get out of bed.">
+    <link rel="canonical" href="https://alarmplay.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AlarmPlay">
+    <meta property="og:title" content="AlarmPlay: Alien Invasion — Wake Up. Defend Earth.">
+    <meta property="og:description" content="The alarm app that turns your morning into an alien invasion. Complete missions, defend Earth, and actually get out of bed.">
+    <meta property="og:url" content="https://alarmplay.app/">
+    <meta property="og:image" content="https://alarmplay.app/assets/alien_invasion_hero.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AlarmPlay: Alien Invasion — Wake Up. Defend Earth.">
+    <meta name="twitter:description" content="The alarm app that turns your morning into an alien invasion. Complete missions, defend Earth, and actually get out of bed.">
+    <meta name="twitter:image" content="https://alarmplay.app/assets/alien_invasion_hero.svg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👽%3C/text%3E%3C/svg%3E">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AlarmPlay: Alien Invasion",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, Android",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "The alarm app that turns your morning into an alien invasion. Complete missions, defend Earth, and actually get out of bed.",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "50000" }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        space: {
+                            DEFAULT: '#0B1426',
+                            light: '#1A1D29',
+                        },
+                        alien: {
+                            DEFAULT: '#39FF14',
+                            purple: '#5B2C87',
+                            pink: '#FF6B9D',
+                            orange: '#FF8C42',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-zinc-950 text-zinc-50 font-sans antialiased">
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: Header / Navigation                                -->
+    <!-- ============================================================ -->
+    <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 shrink-0" aria-label="AlarmPlay Home">
+                    <img src="assets/alarmplay_logo_main.svg" alt="AlarmPlay" class="h-10 sm:h-12 w-auto">
+                </a>
+
+                <!-- Desktop nav links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#how-it-works" class="text-sm font-medium text-zinc-300 hover:text-emerald-400 transition-colors">How It Works</a>
+                    <a href="#features" class="text-sm font-medium text-zinc-300 hover:text-emerald-400 transition-colors">Features</a>
+                    <a href="#faq" class="text-sm font-medium text-zinc-300 hover:text-emerald-400 transition-colors">FAQ</a>
+                    <a href="#download" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-emerald-500 text-zinc-950 hover:bg-emerald-400 transition-colors">
+                        Download
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-300 hover:text-emerald-400 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile menu panel -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col gap-3 pt-2 border-t border-zinc-800">
+                    <a href="#how-it-works" class="mobile-link block py-2 text-base font-medium text-zinc-300 hover:text-emerald-400 transition-colors">How It Works</a>
+                    <a href="#features" class="mobile-link block py-2 text-base font-medium text-zinc-300 hover:text-emerald-400 transition-colors">Features</a>
+                    <a href="#faq" class="mobile-link block py-2 text-base font-medium text-zinc-300 hover:text-emerald-400 transition-colors">FAQ</a>
+                    <a href="#download" class="mobile-link inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold bg-emerald-500 text-zinc-950 hover:bg-emerald-400 transition-colors">Download</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: Hero                                               -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
+        <!-- Starfield background -->
+        <div class="absolute inset-0 bg-zinc-950">
+            <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.6), transparent), radial-gradient(1.5px 1.5px at 40% 25%, rgba(255,255,255,0.9), transparent), radial-gradient(1px 1px at 55% 12%, rgba(255,255,255,0.5), transparent), radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.7), transparent), radial-gradient(1.5px 1.5px at 85% 10%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 15% 40%, rgba(255,255,255,0.6), transparent), radial-gradient(1px 1px at 60% 35%, rgba(255,255,255,0.5), transparent), radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.7), transparent), radial-gradient(1.5px 1.5px at 5% 55%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 35% 50%, rgba(255,255,255,0.6), transparent), radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.5), transparent); background-size: 200px 200px;"></div>
+        </div>
+
+        <!-- Green glow behind phones -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-emerald-500/15 blur-[120px]"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- Left: Copy -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.95]">
+                        <span class="block">WAKE UP,</span>
+                        <span class="block text-emerald-400">HUMAN.</span>
+                    </h1>
+                    <p class="mt-4 text-3xl sm:text-5xl font-bold tracking-tight text-alien-pink">
+                        THEY'RE COMING.
+                    </p>
+                    <p class="mt-6 text-lg sm:text-xl text-zinc-400 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        The alarm app that turns your morning into an alien invasion. Complete missions, defend Earth, and actually get out of bed.
+                    </p>
+
+                    <!-- Store badges -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://apps.apple.com/app/alarmplay-alien-invasion/id0000000000" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform hover:scale-105" aria-label="Download on the App Store">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-12 sm:h-14 w-auto">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.alarmplay.alieninvasion" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform hover:scale-105" aria-label="Get it on Google Play">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-12 sm:h-14 w-auto">
+                        </a>
+                    </div>
+
+                    <!-- Social proof -->
+                    <div class="mt-6 flex items-center justify-center lg:justify-start gap-3 text-sm text-zinc-400">
+                        <span role="img" class="flex items-center gap-1" aria-label="4.8 out of 5 stars">
+                            <span class="text-yellow-400 text-base">★★★★★</span>
+                            <span class="text-zinc-300 font-semibold">4.8</span>
+                        </span>
+                        <span class="text-zinc-600">•</span>
+                        <span>Trusted by <span class="font-semibold text-zinc-300">50,000+</span> humans</span>
+                    </div>
+                </div>
+
+                <!-- Right: Floating phone mockups -->
+                <div class="relative flex items-center justify-center h-[400px] sm:h-[500px]">
+                    <!-- Hero illustration behind phones -->
+                    <img src="assets/alien_invasion_hero.svg" alt="Alien invasion scene" class="absolute inset-0 w-full h-full object-contain opacity-40 sm:opacity-60">
+                    <!-- Phone mockup left -->
+                    <div class="relative z-10 -rotate-[8deg] drop-shadow-2xl translate-y-8 sm:translate-y-0">
+                        <img src="assets/app_mockup_main.svg" alt="AlarmPlay alarm screen" class="w-[140px] sm:w-[200px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                    <!-- Phone mockup right -->
+                    <div class="relative z-10 rotate-[6deg] drop-shadow-2xl -translate-y-4 sm:-translate-y-0 -ml-8 sm:-ml-12">
+                        <img src="assets/app_mockup_main.svg" alt="AlarmPlay mission screen" class="w-[140px] sm:w-[200px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: How It Works                                       -->
+    <!-- ============================================================ -->
+    <section id="how-it-works" class="py-16 sm:py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <p class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-emerald-400 mb-3">How It Works</p>
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Set up in 30 seconds.</h2>
+                <p class="mt-3 text-lg sm:text-xl text-zinc-400">Save Earth every morning.</p>
+            </div>
+
+            <!-- Steps grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative group">
+                    <div class="relative rounded-2xl bg-zinc-800 border border-zinc-700 p-6 sm:p-8 h-full transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5">
+                        <span class="absolute -top-4 -left-2 text-7xl sm:text-8xl font-bold text-emerald-500/10 select-none">01</span>
+                        <div class="relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold text-emerald-400">Incoming Threat</h3>
+                            <p class="mt-3 text-zinc-400 leading-relaxed">Set your alarm time and choose an invasion scenario. UFO swarm, alien ground troops, or orbital strike — each one needs a different mission to stop.</p>
+                            <div class="mt-6 flex justify-center">
+                                <img src="assets/app_mockup_main.svg" alt="AlarmPlay alarm setup screen showing alien invasion mission selection" class="w-[120px] sm:w-[160px] h-auto rounded-2xl ring-1 ring-zinc-600" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Arrow connector -->
+                    <div class="hidden md:block absolute top-1/2 -right-5 translate-x-1/2 -translate-y-1/2 z-20 text-emerald-500/40 text-2xl">→</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative group">
+                    <div class="relative rounded-2xl bg-zinc-800 border border-zinc-700 p-6 sm:p-8 h-full transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5">
+                        <span class="absolute -top-4 -left-2 text-7xl sm:text-8xl font-bold text-emerald-500/10 select-none">02</span>
+                        <div class="relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold text-emerald-400">Defend Your Planet</h3>
+                            <p class="mt-3 text-zinc-400 leading-relaxed">When the alarm sounds, the invasion begins. Complete your mission — do push-ups, solve tactical puzzles, or scan your surroundings — to shut it off. No snoozing through an alien attack.</p>
+                            <div class="mt-6 flex justify-center">
+                                <img src="assets/app_mockup_main.svg" alt="AlarmPlay active mission screen with alien invasion alert" class="w-[120px] sm:w-[160px] h-auto rounded-2xl ring-1 ring-zinc-600" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Arrow connector -->
+                    <div class="hidden md:block absolute top-1/2 -right-5 translate-x-1/2 -translate-y-1/2 z-20 text-emerald-500/40 text-2xl">→</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative group">
+                    <div class="relative rounded-2xl bg-zinc-800 border border-zinc-700 p-6 sm:p-8 h-full transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5">
+                        <span class="absolute -top-4 -left-2 text-7xl sm:text-8xl font-bold text-emerald-500/10 select-none">03</span>
+                        <div class="relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold text-emerald-400">Earth Is Saved</h3>
+                            <p class="mt-3 text-zinc-400 leading-relaxed">Mission complete. The aliens retreat — for now. You're out of bed, alert, and ready to start your day. Check your defense stats.</p>
+                            <div class="mt-6 flex justify-center">
+                                <img src="assets/app_mockup_main.svg" alt="AlarmPlay mission complete victory screen" class="w-[120px] sm:w-[160px] h-auto rounded-2xl ring-1 ring-zinc-600" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: Features (Your Arsenal)                            -->
+    <!-- ============================================================ -->
+    <section id="features" class="py-16 sm:py-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <p class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-emerald-400 mb-3">Your Arsenal</p>
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Built to keep you <span class="italic text-emerald-400">consistent</span>.</h2>
+                <p class="mt-3 text-lg sm:text-xl text-zinc-400">And save Earth.</p>
+            </div>
+
+            <!-- Features grid: 2×3 desktop, 1-col mobile -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">🛸</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Mission Variety</h3>
+                    <p class="text-zinc-400 leading-relaxed">Push-ups, math puzzles, photo scans, voice commands, and more. Every morning is a new alien threat requiring a different countermeasure.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">🔥</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Streak Defense</h3>
+                    <p class="text-zinc-400 leading-relaxed">Build a chain of successful defenses. Every morning you complete your mission, your streak grows. Skip a day and the aliens break through.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">📊</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Intel Reports</h3>
+                    <p class="text-zinc-400 leading-relaxed">Track your wake-up times, mission completion rates, and streaks across weeks and months. See when you're winning the war against the snooze button.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">🎯</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Precision Verified</h3>
+                    <p class="text-zinc-400 leading-relaxed">Your phone's camera confirms you're actually doing push-ups or completing physical missions. No cheating — the aliens can tell.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">📡</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Radar Scan</h3>
+                    <p class="text-zinc-400 leading-relaxed">Lock distracting apps before bed and during your morning routine. The radar is active — no unauthorized app activity during critical hours.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="group rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-2xl mb-4">👾</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Alien Ranks</h3>
+                    <p class="text-zinc-400 leading-relaxed">Earn ranks as you defend Earth. From Cadet to Galactic Commander — how high can you climb? Unlock new mission types and alien enemies as you rank up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: Screenshots / App Preview                          -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-24 bg-zinc-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <p class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-emerald-400 mb-3">See It In Action</p>
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Your morning command center.</h2>
+            </div>
+
+            <!-- Screenshots: 4-up desktop, 2×2 mobile -->
+            <div class="relative">
+                <!-- Glow blurs -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px]"></div>
+
+                <div class="relative grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 place-items-center">
+                    <div class="-rotate-[8deg] drop-shadow-2xl">
+                        <img src="assets/app_mockup_main.svg" alt="Alarm setup screen" class="w-[120px] sm:w-[180px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                    <div class="rotate-[6deg] drop-shadow-2xl translate-y-4">
+                        <img src="assets/app_mockup_main.svg" alt="UFO defense screen" class="w-[120px] sm:w-[180px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                    <div class="-rotate-[4deg] drop-shadow-2xl -translate-y-2">
+                        <img src="assets/app_mockup_main.svg" alt="Victory screen" class="w-[120px] sm:w-[180px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                    <div class="rotate-[8deg] drop-shadow-2xl translate-y-2">
+                        <img src="assets/app_mockup_main.svg" alt="Intel dashboard" class="w-[120px] sm:w-[180px] h-auto rounded-[2rem] ring-1 ring-zinc-700" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: FAQ                                                -->
+    <!-- ============================================================ -->
+    <section id="faq" class="py-16 sm:py-24 bg-zinc-950">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Got questions?</h2>
+                <p class="mt-3 text-lg text-zinc-400">Mission briefing below.</p>
+            </div>
+
+            <dl class="divide-y divide-zinc-800">
+                <!-- Q1 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>How does the alien invasion alarm work?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        When your alarm goes off, an alien invasion scenario begins. The only way to stop the alarm — and save Earth — is to complete the mission you chose: push-ups, puzzles, photo scans, or voice commands. The alarm won't stop until the mission is verified.
+                    </dd>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>Can I really not snooze?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        That's right. There's no snooze button during an alien attack. You must complete your mission. On premium, you get one 'Emergency Evac' per week — use it wisely.
+                    </dd>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>What missions can I choose from?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        Push-ups (camera-verified), math puzzles (tactical decryption), photo scan (reconnaissance), voice command (hailing frequencies), make your bed (base fortification), and more. New invasion types are added regularly.
+                    </dd>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>How does it verify I did the mission?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        Each mission type has its own verification. Push-ups use your phone's camera. Math puzzles need correct answers. Photo scans match real-world objects. The alarm doesn't stop until the mission is verified — the aliens aren't fooled easily.
+                    </dd>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>How do streaks work?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        Every day you complete your mission, your defense streak grows. Miss a day and the aliens break through — your streak resets. Build the longest defense record in the galaxy.
+                    </dd>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>What if I'm a heavy sleeper?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        AlarmPlay was built for heavy sleepers. The alarm volume increases, the alien invasion audio intensifies, and the mission won't stop until completed. You can't dismiss an alien attack from bed.
+                    </dd>
+                </div>
+
+                <!-- Q7 -->
+                <div class="faq-item py-5">
+                    <dt>
+                        <button class="faq-toggle flex w-full items-center justify-between text-left text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors" aria-expanded="false">
+                            <span>Does it work offline?</span>
+                            <svg class="faq-icon w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer hidden mt-3 pr-12 text-zinc-400 leading-relaxed">
+                        Yes. All missions and alarm functions work offline. Alien invasions don't wait for Wi-Fi.
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: Final CTA / Download                               -->
+    <!-- ============================================================ -->
+    <section id="download" class="py-16 sm:py-24 bg-zinc-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Ready to defend Earth?</h2>
+            <p class="mt-4 text-lg sm:text-xl text-zinc-400">
+                Download AlarmPlay and start your first mission tomorrow morning.
+            </p>
+
+            <!-- Store badges -->
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://apps.apple.com/app/alarmplay-alien-invasion/id0000000000" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform hover:scale-105" aria-label="Download on the App Store">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-14 sm:h-16 w-auto">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.alarmplay.alieninvasion" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform hover:scale-105" aria-label="Get it on Google Play">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-14 sm:h-16 w-auto">
+                </a>
+            </div>
+
+            <p class="mt-6 text-sm text-zinc-400">iOS 16+ • Android 10+ • Free with in-app purchases</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: Footer                                             -->
+    <!-- ============================================================ -->
+    <footer class="py-12 sm:py-16 bg-zinc-950 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 gap-8 sm:gap-12">
+                <!-- Company column -->
+                <div>
+                    <h3 class="text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">About</a></li>
+                        <li><a href="mailto:contact@alarmplay.app" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Press Kit</a></li>
+                    </ul>
+                </div>
+                <!-- Legal column -->
+                <div>
+                    <h3 class="text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">EULA</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-10 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-zinc-400">© 2026 AlarmPlay. All rights reserved.</p>
+                <p class="text-sm text-zinc-300 italic">Earth is safe. For now.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- Vanilla JS: interactions                                       -->
+    <!-- ============================================================ -->
+    <script>
+        // --- Sticky nav with backdrop blur on scroll ---
+        const header = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-zinc-950/80', 'backdrop-blur-xl', 'border-b', 'border-zinc-800');
+            } else {
+                header.classList.remove('bg-zinc-950/80', 'backdrop-blur-xl', 'border-b', 'border-zinc-800');
+            }
+        });
+
+        // --- Mobile menu toggle ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            menuIconOpen.classList.remove('hidden');
+            menuIconClose.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                mobileMenu.classList.remove('hidden');
+                menuIconOpen.classList.add('hidden');
+                menuIconClose.classList.remove('hidden');
+                menuBtn.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // --- FAQ accordion ---
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.parentElement.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+                // Close all others
+                document.querySelectorAll('.faq-toggle').forEach(other => {
+                    if (other !== button && other.getAttribute('aria-expanded') === 'true') {
+                        other.setAttribute('aria-expanded', 'false');
+                        other.parentElement.nextElementSibling.classList.add('hidden');
+                        other.querySelector('.faq-icon').classList.remove('rotate-45');
+                    }
+                });
+
+                // Toggle current
+                if (isOpen) {
+                    button.setAttribute('aria-expanded', 'false');
+                    answer.classList.add('hidden');
+                    icon.classList.remove('rotate-45');
+                } else {
+                    button.setAttribute('aria-expanded', 'true');
+                    answer.classList.remove('hidden');
+                    icon.classList.add('rotate-45');
+                }
+            });
+        });
+
+        // --- Smooth scroll for nav links (supplements scroll-smooth on html) ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80; // nav height
+                    const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: position, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

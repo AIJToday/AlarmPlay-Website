@@ -1,0 +1,107 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="spaceBackground" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" style="stop-color:#1A1D29;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0B1426;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="ufoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5B2C87;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#39FF14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="heroGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Space Background -->
+  <rect width="800" height="400" fill="url(#spaceBackground)"/>
+  
+  <!-- Stars -->
+  <circle cx="100" cy="50" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="200" cy="30" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="350" cy="80" r="1.5" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="500" cy="40" r="1" fill="#FFFFFF" opacity="0.7"/>
+  <circle cx="650" cy="60" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="720" cy="90" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="150" cy="120" r="1" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="600" cy="110" r="1.5" fill="#FFFFFF" opacity="0.7"/>
+  
+  <!-- Planet in background -->
+  <circle cx="680" cy="100" r="40" fill="#5B2C87" opacity="0.3"/>
+  <circle cx="685" cy="95" r="35" fill="#39FF14" opacity="0.1"/>
+  
+  <!-- Main UFO -->
+  <g transform="translate(300, 120)">
+    <!-- UFO Body -->
+    <ellipse cx="0" cy="0" rx="80" ry="25" fill="url(#ufoGradient)" filter="url(#heroGlow)"/>
+    <!-- UFO Dome -->
+    <ellipse cx="0" cy="-15" rx="35" ry="20" fill="#39FF14" opacity="0.6" filter="url(#softGlow)"/>
+    <!-- UFO Details -->
+    <circle cx="-40" cy="0" r="6" fill="#FF6B9D" opacity="0.8"/>
+    <circle cx="0" cy="0" r="6" fill="#FF6B9D" opacity="0.8"/>
+    <circle cx="40" cy="0" r="6" fill="#FF6B9D" opacity="0.8"/>
+    <!-- Light Beam -->
+    <polygon points="-60,25 60,25 80,150 -80,150" fill="#39FF14" opacity="0.2" filter="url(#softGlow)"/>
+    <polygon points="-40,25 40,25 50,120 -50,120" fill="#39FF14" opacity="0.3"/>
+  </g>
+  
+  <!-- Smaller UFOs -->
+  <g transform="translate(150, 80)">
+    <ellipse cx="0" cy="0" rx="30" ry="12" fill="#5B2C87" opacity="0.8"/>
+    <ellipse cx="0" cy="-8" rx="15" ry="10" fill="#39FF14" opacity="0.5"/>
+    <polygon points="-20,12 20,12 25,50 -25,50" fill="#39FF14" opacity="0.15"/>
+  </g>
+  
+  <g transform="translate(600, 90)">
+    <ellipse cx="0" cy="0" rx="25" ry="10" fill="#FF6B9D" opacity="0.8"/>
+    <ellipse cx="0" cy="-6" rx="12" ry="8" fill="#39FF14" opacity="0.5"/>
+    <polygon points="-15,10 15,10 20,40 -20,40" fill="#39FF14" opacity="0.15"/>
+  </g>
+  
+  <!-- City silhouette -->
+  <rect x="0" y="320" width="120" height="80" fill="#0B1426"/>
+  <rect x="120" y="300" width="80" height="100" fill="#1A1D29"/>
+  <rect x="200" y="310" width="60" height="90" fill="#0B1426"/>
+  <rect x="260" y="290" width="90" height="110" fill="#1A1D29"/>
+  <rect x="350" y="305" width="70" height="95" fill="#0B1426"/>
+  <rect x="420" y="280" width="100" height="120" fill="#1A1D29"/>
+  <rect x="520" y="295" width="80" height="105" fill="#0B1426"/>
+  <rect x="600" y="315" width="60" height="85" fill="#1A1D29"/>
+  <rect x="660" y="300" width="85" height="100" fill="#0B1426"/>
+  <rect x="745" y="310" width="55" height="90" fill="#1A1D29"/>
+  
+  <!-- Building windows -->
+  <rect x="10" y="330" width="8" height="8" fill="#39FF14" opacity="0.6"/>
+  <rect x="25" y="340" width="8" height="8" fill="#39FF14" opacity="0.6"/>
+  <rect x="40" y="335" width="8" height="8" fill="#FF6B9D" opacity="0.6"/>
+  <rect x="130" y="310" width="8" height="8" fill="#39FF14" opacity="0.6"/>
+  <rect x="145" y="320" width="8" height="8" fill="#39FF14" opacity="0.6"/>
+  <rect x="160" y="315" width="8" height="8" fill="#FF6B9D" opacity="0.6"/>
+  
+  <!-- Alarm Clock floating in beam -->
+  <g transform="translate(400, 230)">
+    <circle cx="0" cy="0" r="25" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="0" cy="0" r="20" fill="#1A1D29"/>
+    <circle cx="0" cy="0" r="2" fill="#39FF14"/>
+    <line x1="0" y1="0" x2="0" y2="-12" stroke="#39FF14" stroke-width="2"/>
+    <line x1="0" y1="0" x2="8" y2="-8" stroke="#FF6B9D" stroke-width="2"/>
+    <!-- Bell on top -->
+    <circle cx="-8" cy="-18" r="3" fill="#FF8C42"/>
+    <circle cx="8" cy="-18" r="3" fill="#FF8C42"/>
+  </g>
+</svg>
