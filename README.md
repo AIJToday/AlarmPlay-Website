@@ -5,11 +5,9 @@ Marketing landing page for the iOS alarm app **AlarmPlay: Alien Invasion** ("the
 Static single-page site built with vanilla HTML + inline CSS/JS and inline/SVG assets. No build step — open `index.html` in any browser or serve the folder.
 
 ## Sections
-- Sticky nav with mobile hamburger menu
-- Hero: social-proof badge, headline ("Wake Up, Human."), App Store badge, glowing orbs + starfield
-- Set up in 30 seconds
-- Built to keep you consistent
-- Your morning command center
+- Sticky nav with mobile hamburger menu and AP logo
+- Hero: headline ("Wake Up, Human." / "THEY'RE COMING."), ALIEN INVASION rule, App Store badge, two phone screenshots
+- Set up in 30 seconds (3 steps, each with layered phone screenshots)
 - FAQ
 - CTA: Ready to defend Earth?
 - Footer
@@ -21,4 +19,4 @@ python3 -m http.server 8765
 ```
 
 ## Assets
-`assets/` contains the SVG artwork: logo, alien-invasion hero, app mockups, alien mascot.
+`assets/` contains the PNG/SVG artwork: the AP happy-emoji logo, hero phone screenshots, and per-step gameplay screenshots.
