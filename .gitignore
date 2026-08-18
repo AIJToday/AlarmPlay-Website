@@ -1,4 +1,15 @@
 # AlarmPlay: Alien Invasion — marketing landing page
+
+# macOS
 .DS_Store
 Thumbs.db
+
+# Logs
 *.log
+
+# Dependencies (installed by Railway's build; not committed)
+node_modules/
+
+# Local test server artifacts
+.railway/
+*.pid
