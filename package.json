@@ -1,0 +1,16 @@
+{
+  "name": "alarmplay-website",
+  "version": "1.0.0",
+  "description": "AlarmPlay: Alien Invasion — marketing landing page",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l tcp://0.0.0.0:$PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
