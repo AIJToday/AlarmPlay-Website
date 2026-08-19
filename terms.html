@@ -35,7 +35,7 @@
     <!-- ============================================================ -->
     <!-- Header / Navigation                                          -->
     <!-- ============================================================ -->
-    <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
+    <header id="nav" class="fixed top-0 left-0 right-0 z-50 bg-zinc-950">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between py-4 sm:py-5">
                 <a href="index.html" class="flex items-center gap-2 shrink-0" aria-label="AlarmPlay Home">
@@ -188,9 +188,9 @@
         const header = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
-                header.classList.add('bg-zinc-950', 'border-b', 'border-zinc-800');
+                header.classList.add('border-b', 'border-zinc-800');
             } else {
-                header.classList.remove('bg-zinc-950', 'border-b', 'border-zinc-800');
+                header.classList.remove('border-b', 'border-zinc-800');
             }
         });
     </script>
